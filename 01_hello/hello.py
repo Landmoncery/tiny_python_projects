@@ -1,10 +1,22 @@
-#!/usr/bin/env python
-# purpose: Say Hello
+#!/usr/bin/env python3
+'''
+Author: Luyao M
+Purpose: Say hello
+'''
 
 import argparse
 
-parser = argparse.ArgumentParser(description='Say Hello')
-parser.add_argument('name', help='Name to greet')
-args = parser.parse_args()
+def get_args():
+    parser = argparse.ArgumentParser(description='Say hello')
+    parser.add_argument('-n', '--name', metavar='name',
+                        default='World', help='Name to greet')
+    return parser.parse_args()
+# note: be careful about the [space].
+# I was failed to pass the test just because the output is 'Hello,World!', missed the space
 
-print('Hello, ' + args.name + '!')
+def main():
+     args = get_args()
+     print('Hello, ' + args.name + '!')
+     
+if __name__ == '__main__':
+    main()
